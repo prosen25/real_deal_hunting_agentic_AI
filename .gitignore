@@ -208,3 +208,6 @@ __marimo__/
 
 # Vector Database
 products_vectorstore
+
+# Deep Neural Network
+deep_neural_network.pth

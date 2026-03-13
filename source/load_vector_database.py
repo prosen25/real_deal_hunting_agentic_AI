@@ -55,7 +55,7 @@ def load_vector_db() -> Collection:
         for i in tqdm(range(0, len(train), 1000)):
             documents = [item.summary for item in train[i: i+1000]]
             response = openai.embeddings.create(input=documents, model=EMBEDDING_MODEL)
-            embeddings = [item.embedding for item in response.data[i: i+1000]]
+            embeddings = [item.embedding for item in response.data]
             metadatas = [{"category": item.category, "price": item.price} for item in train[i: i+1000]]
             ids = [f"doc_{j}" for j in range(i, i+1000)]
             ids = ids[:len(documents)]
